@@ -121,7 +121,7 @@
                                             <h6 class="text">Event Type</h6>
                                             <span class="ph-no">{{$event['event_category']}}</span><br><br><br>
 
-                                                <div class="sharethis-inline-share-buttons" data-url="http://localhost/mon_commerce/public/event/{{$event->id}}"></div>    
+                                                <div class="sharethis-inline-share-buttons" data-url="http://meaorg.com/event/{{$event->id}}"></div>    
                                         </div>                           
                                     </div><!--/content-content-->
                                 </div><!--/course-detail-->

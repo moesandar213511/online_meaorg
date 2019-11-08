@@ -4,6 +4,10 @@
 @endsection
 @section('css')
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5da47a4026f4f800126d341a&product=inline-share-buttons" async="async"></script>
+
+    
+   
+}
 @endsection
 @section('content')
         <style>
@@ -41,6 +45,9 @@
         height:35vh!important;
         margin-top: 100px!important;
     }
+     .single-post .img-fluid{
+            height: 200px!important;
+        }
     h2{
         display: inline-block;
     }
@@ -53,6 +60,10 @@
    
     
    
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+        font-family: Pyidaungsu!important;
 }
 
 </style>
@@ -108,7 +119,7 @@
                                         </div>
                                     </div> --}}
                                 
-                                <div class="sharethis-inline-share-buttons" data-url="http://localhost/mon_commerce/public/blog/{{$blog->id}}"></div>
+                                <div class="sharethis-inline-share-buttons" data-url="http://meaorg.com/blog/{{$blog->id}}"></div>
     
                                 <!-- Start comment-sec Area -->
                                 <!-- <section class="comment-sec-area py-5">
@@ -252,7 +263,7 @@
                                             @foreach($latest_news as $item)
                                             <div class="single-recent-post d-flex flex-row">
                                                 <div class="recent-thumb">
-                                                    <a href="{{url('/blog/'.$item['id'])}}"><img class="img-fluid" src="{{$item['photo_url']}}" alt="" style="width:100px;height:80px" class="img-responsive"></a>
+                                                    <a href="{{url('/blog/'.$item['id'])}}"><img class="" src="{{$item['photo_url']}}" alt="" style="width:100px!important;height:100px" class="img-responsive"></a>
                                                 </div>
                                                 <div class="recent-details">
                                                     <a href="{{url('/blog/'.$item['id'])}}">

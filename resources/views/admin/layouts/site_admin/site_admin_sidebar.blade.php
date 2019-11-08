@@ -50,6 +50,12 @@
                             <p>Company</p>
                         </a>
                     </li>
+                    <li class="nav-item @if($url=="banner") active @endif">
+                        <a class="nav-link" href="{{url('admin/banner')}}">
+                            <i class="material-icons">dashboard</i>
+                            <p>Banner Image</p>
+                        </a>
+                    </li>
                     <!-- <li class="nav-item @if($url=="main_category") active @endif">
                         <a class="nav-link" href="{{url('admin/main_category')}}">
                             <i class="material-icons">dashboard</i>
@@ -123,6 +129,12 @@
                 <a class="nav-link" href="{{url('logout')}}">
                     <i class="material-icons">logout</i>
                     <p>Logout</p>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="material-icons"></i>
+                    <p></p>
                 </a>
             </li>
 

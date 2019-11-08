@@ -26,15 +26,20 @@
         #mission_vision{
             background-color: #fcfcfc!important;
         }
+        .custom-slide .carousel-inner .carousel-item img{
+    height: 200px;
+}
     }
+    
 @media(min-width: 991px){
     .border_right_rule{
         border-right: 1px solid #cecece;
     }
 }
 .custom-slide{
-    margin-top: 110px!important;
+    margin-top: 115px!important;
 }
+
 </style>
 
     <section class="custom-slide">
@@ -46,19 +51,23 @@
 
                   <!-- The slideshow -->
                   <div class="carousel-inner">
+                    {{-- @foreach($banner as $banner_data)  --}}
+                    {{-- <div class="carousel-item active">              
+                      <img src="{{asset('upload/banner/'.$banner_data['photos'])}}" alt="Los Angeles" width="100%" height="477px;">               
+                    </div> --}}
+                    {{-- @endforeach --}}
+                    {{-- @for($i = 0; $i < $banner['0']; $i++) --}}
                     <div class="carousel-item active">
-                      <img src="{{asset('user/images/home.jpg')}}" alt="Los Angeles" width="100%">
+                      <img src="{{asset('upload/banner/'.$banner['0']['photos'])}}" alt="Chicago" width="100%" height="477px;">
                     </div>
+                    {{-- @endfor --}}
+                    @for($i = 1; $i < count($banner); $i++)
                     <div class="carousel-item">
-                      <img src="{{asset('user/images/home-2.jpg')}}" alt="Chicago" width="100%">
+                      <img src="{{asset('upload/banner/'.$banner[$i]['photos'])}}" alt="New York" width="100%" height="477px;">
                     </div>
-                    <div class="carousel-item">
-                      <img src="{{asset('user/images/home-3.jpg')}}" alt="New York" width="100%">
-                    </div>
+                    @endfor
+                   
                   </div>
-
-
-
                 </div>
                 </div>
             </div>
@@ -104,23 +113,55 @@
 
 
 
-        <section id="mission_vision" style="background-color:#ececec;padding-top: 150px;padding-bottom: 50px;margin-top: -100px;">
-            <div class="container">
-                <div class="col-md-6 pull-right">
-                    <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">
-                        Our Mission
-                    </h3>
-                     <p style="line-height: 30px;">{!! $websiteinfo['mission'] !!}</p>
-                </div>
-                <div class="col-md-6 border_right_rule">
-                    <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">
-                        Our Vision
-                    </h3>
-                    <p style="line-height: 30px;">{!! $websiteinfo['vision'] !!}</p>
-                </div>
+    <!--<section id="mission_vision" style="background-color:#ececec;padding-top:   150px;padding-bottom: 50px;margin-top: -100px;min-height:1200px">-->
+    <!--        <div class="container">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-sm-6 ">-->
+    <!--                <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">-->
+    <!--                    Our Mission-->
+    <!--                </h3>-->
+                   
+    <!--                    <p style="line-height: 30px;">-->
+    <!--                        {!! substr($websiteinfo['mission'],0,5000) !!}-->
+    <!--                    </p>-->
+                         
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 pull-right">-->
+    <!--                    <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">-->
+    <!--                        Our Vision-->
+    <!--                    </h3>-->
+    <!--                    <p style="line-height: 30px;">{!! $websiteinfo['vision'] !!}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--</section>-->
+    
+    <section style="background-color:#ececec;padding-top:   150px;padding-bottom: 50px;margin-top: -100px;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6" style="border-right:1px solid #e4e4e4;">
+                <h3>
+                  Our Vision
+                </h3>
+                <p>
+                  {!! $websiteinfo['vision'] !!}
+                </p>
+              </div>
+              <div class="col-md-6">
+                <h3>
+                  Our Mission
+                </h3>
+                <p>
+                  {!! substr($websiteinfo['mission'],0,3000) !!}
+                  <br><br>
+                  <a href="{{url('about')}}" class='btn btn-sm btn-primary text-white;' style="display:inline;cursor:pointer;color:#fff;float:right;">Read more</a>
+                </p>
+              </div>
             </div>
+          </div>
         </section>
-
+   
+    
 
 
     <!-- Category Area Starts -->
@@ -137,7 +178,7 @@
                 @foreach($sub_category as $item)
                     <div class="col-lg-3 col-md-6">
                         <div class="single-category text-center mb-4">
-                            <img src="{{$item['logo_url']}}" alt="category">
+                            <img src="{{$item['logo_url']}}" alt="category" >
                             <h4>{{$item['name']}}</h4>
                             <h5>{{$item['total_company']}} Companies</h5>
                             <a href="{{url('category/company/'.$item['id'])}}" class="more">More Details >>></a>
@@ -811,14 +852,15 @@
                                         <img src="{{$item['photo_url']}}" alt="job" width="100px" height="100px;" class="img-responsive">
                                     </div>
                                 </div>
-                                <div class="job-text" style="margin-right: 150px;">
-                                    <h4>{{$item['name']}} <small>( {{$item['subcategory_name']}} )</small></h4>
+                                <div class="col-md-7 job-text" >
+                                    <h4>{{$item['name']}}</h4>
+                                    <small>{{$item['subcategory_name']}}</small>
                                     <ul class="mt-4">
                                         <li class="mb-3"><i class="fa fa-envelope"></i> {{$item['email']}}</li>
                                         <li class="mb-3"><i class="fa fa-phone"></i> {{$item['phone']}}</<i></li>
                                     </ul>
                                 </div>
-                                <div class="job-btn align-self-center">
+                                <div class="col-md-3 job-btn align-self-center ml-2">
                                     <a href="{{url('company/'.$item['id'])}}" class="third-btn job-btn1">More Detail</a>
                                 </div>
                             </div>
@@ -843,7 +885,7 @@
                     @foreach($ads as $ads_photos)
                         <div class="row main-content">
                             <div class="col-lg-12">
-                                <a href="{{$ads_photos['link']}}">
+                                <a href="{{$ads_photos['link']}}" target="_blank">
                                     <img src="{{$ads_photos['photo_url']}}" alt="" width="100%" height="200px">
                                 </a>
                             </div>

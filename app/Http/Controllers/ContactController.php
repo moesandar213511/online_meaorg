@@ -7,6 +7,7 @@ use App\Contact;
 use App\WebSiteInfo;
 use App\CustomClass\WebSiteInfoData;
 use App\CustomClass\ContactData;
+use Session;
 
 class ContactController extends Controller
 {
@@ -46,6 +47,7 @@ class ContactController extends Controller
         ]);
     }
     public function update_info(Request $request){
+        Session::flash('success', 'Update Data Successfully');
          $id = $request->get('id');
         if ($request->hasFile('image')) {
             $image = $request->file('image');

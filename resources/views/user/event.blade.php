@@ -38,6 +38,9 @@
         height:35vh!important;
         margin-top: 100px!important;
     }
+    .custom-sidebar{
+        margin-top: 10px;
+    }
     h2{
         display: inline-block;
     }
@@ -123,7 +126,7 @@
                         @endif
                     {{$paginate->links()}}
                 </div><!-- /col-md-9 -->
-                <div class="col-lg-4 sidebar">
+                <div class="col-lg-4 sidebar custom-sidebar">
                     <div class="single-widget search-widget">
                         <form class="example" action="{{url('/search_event')}}" style="margin:auto;max-width:300px" method="post">
                             {{csrf_field()}}
@@ -160,7 +163,7 @@
                     @foreach($ads as $ads_photos)
                         <div class="row main-content">
                             <div class="col-lg-12">
-                                <a href="{{$ads_photos['link']}}">
+                                <a href="{{$ads_photos['link']}}" target="_blank">
                                     <img src="{{$ads_photos['photo_url']}}" alt="" width="100%" height="200px">
                                 </a>
                             </div>

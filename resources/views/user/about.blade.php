@@ -39,6 +39,10 @@
         height:35vh!important;
         margin-top: 100px!important;
     }
+    .custom-table{
+        margin-right: 0px!important;
+        margin-left: 0px!important;
+ }
     h2{
         display: inline-block;
     }
@@ -81,27 +85,82 @@
                           <!-- The slideshow -->
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img src="{{url('user/images/mon.jpg')}}" alt="Los Angeles" width="100%">
+                              <img src="{{url('user/images/mon1.JPG')}}" alt="Los Angeles" width="350px;" height="525px;">
                             </div>
                             <div class="carousel-item">
-                              <img src="{{url('user/images/mon2.jpg')}}" alt="Chicago" width="100%">
+                              <img src="{{url('user/images/mon_about.JPG')}}" alt="Chicago" width="350px;" height="525px;">
                             </div>
                             <div class="carousel-item">
-                              <img src="{{url('user/images/mon3.jpg')}}" alt="New York" width="100%">
+                              <img src="{{url('user/images/mon_about1.jpg')}}" alt="New York" width="350px;" height="525px;">
                             </div>
                           </div>
                         </div>
                      </div>
                     <div class="col-md-8  mt-sm-20 left-align-p">
-                        <h3 class="mb-30 text-center custom-history">Our History</h3>
-                        <p>{!! $websiteinfo['history']!!}</p>
-
+                        <h3 class="mb-30 text-center custom-history">About Us</h3>
+                        <p>{!! $websiteinfo['about']!!}</p>
+                     <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="mb-30 text-center custom-history">Our History</h3>
+                            <p>{!! $websiteinfo['history'] !!}</p>
+                        </div>
                     </div>
+                    </div>
+                    
+                    
                 </div>
 
             </div>
+            
         </div>
   </div>
+    
+
+ <!--<div class="container">-->
+ <!--   <section id="mission_vision" style="background-color:#ececec;padding-top:   150px;padding-bottom: 50px;margin-top: -100px;">-->
+ <!--       <div class="row">-->
+ <!--           <div class="col-md-12">-->
+ <!--               <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">-->
+ <!--                   Our Mission-->
+ <!--               </h3>-->
+               
+ <!--                   <p style="line-height: 30px;">{!! $websiteinfo['mission'] !!}</p>-->
+                     
+ <!--           </div>-->
+ <!--       </div>-->
+ <!--   </section>-->
+ <!--       <section id="mission_vision" style="background-color:#ececec;padding-top:   150px;padding-bottom: 50px;margin-top: -100px;">-->
+ <!--       <div class="container">-->
+ <!--           <div class="col-md-12">-->
+ <!--               <h3 class="h4 text-center" style="font-size: 26px; font-weight: bold;">-->
+ <!--                   Our Vision-->
+ <!--               </h3>-->
+               
+ <!--                   <p style="line-height: 30px;">{!! $websiteinfo['vision'] !!}</p>-->
+                     
+ <!--           </div>-->
+ <!--       </div>-->
+ <!--   </section>-->
+ <!--</div>-->
+    
+<section style="background-color:#fefefe;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>
+          Our Vision
+        </h3>
+         <p style="">{!! $websiteinfo['vision'] !!}</p>
+      </div>
+      <div class="col-md-12">
+        <h3>
+          Our Mission
+        </h3>
+        <p style="">{!! $websiteinfo['mission'] !!}</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Team Area Starts -->
     <section class="team-area section-padding2" style="margin-top: -110px;">
@@ -129,7 +188,7 @@
                         </div>
                         <div class="team-footer text-center mt-4">
                             <h3>{{$item['name']}}</h3>
-                            <h5>{{$item['education']}}</h5>
+                            <h5>{{$item['position']}}</h5>
                         </div>
                     </div>
                 </div>
@@ -141,16 +200,17 @@
                     {{$special_paginate->links()}}
         </div>
     </section>
+    <br><br>
     <!-- Team Area End -->
 
 
             <!-- End Sample Area -->
 
             <!-- Start Align Area -->
-            <div class="whole-wrap">
+            {{-- <div class="whole-wrap">
                 <div class="container">
                     <div class="section-top-border">
-                        {{--<h3 class="mb-30 title_color text-center">Table</h3>--}}
+                       
                         <br>
                         <div class="progress-table-wrap">
                             <div class="progress-table">
@@ -173,12 +233,37 @@
                         </div>
                       
                     </div>
-                                      <!--{{$normal_paginate->links()}}-->
+                                     
 
 
                 </div>
-            </div>
+            </div>  --}}
             <!-- End Align Area -->
+<section class="custom-table" style="margin-top: 20px; margin-left: 100px; margin-right:100px;">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Ph Number</th>
+    </tr>
+  </thead>
+  <tbody>
+      <div style="display:none">{{$i=1}}</div>
+      @foreach($normal_member as $item)
+    <tr>
+      <th scope="row">{{$i++}}</th>     
+      <td class="custom-td" style="width="150px;">{{$item['name']}}</td>
+      <td>{{$item['education']}}</td>
+      <td>{{$item['phone']}}</td>      
+    </tr>
+    @endforeach
+  </tbody>
+  
+</table>
+ {{$normal_paginate->links()}}
+</section>
 
     <!-- Employee Area Starts -->
     <section class="employee-area section-padding">
