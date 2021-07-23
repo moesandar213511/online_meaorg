@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('admin/ads','AdsController@index');
     Route::post('/insert/ads','AdsController@store');
     Route::post('/get_all_ads','AdsController@get_all_ads');
-    Route::post('/edit/ads/{id}','AdsController@edit');
+    Route::get('/edit/ads/{id}','AdsController@edit');
     Route::post('/update/ads','AdsController@update');
     Route::post('/delete/ads/{id}','AdsController@destroy');
 
@@ -144,10 +144,17 @@ Route::get('/event', 'UIController@event');
 Route::get('/event/{id}', 'UIController@event_single');
 Route::get('get_sub_category/{id}','Controller@get_sub_category');
 Route::get('search/company/{sub_id}/{keyword}','UIController@search_company');
-Route::post('/search_event', 'UIController@search_event');
-Route::post('/search_blog', 'UIController@search_blog');
+Route::get('/search_event', 'UIController@search_event');
+Route::get('/search_blog', 'UIController@search_blog');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 //contact
-Route::post('/contact','Controller@store');
+// Route::post('/contact','Controller@store');
+
+// in registerController
+// use Illuminate\Support\Facades\Hash;
+// Route::get('test',function(){
+//     echo Hash::make("chitminthu1001");
+// });
+
 

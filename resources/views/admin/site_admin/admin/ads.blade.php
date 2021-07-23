@@ -304,7 +304,7 @@
             edit_data=function(id){
 
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: "../edit/ads/"+id,
 
                     cache: false,
@@ -317,16 +317,20 @@
                         $('#update_link').val(ads['link']);
                         $('#update_s_date').val(ads['s_date']);
                         $('#update_e_date').val(ads['e_date']);
-                        var web_arr = ads['webpages'];
-
-                        var arr = [];
+                        var web_arr = ads['webpages']; //fetch checked webpage with get() in db 
+                        console.log(web_arr);
+                        //all data in db
+                        var arr = []; 
                         var aa = $('.webpage_arr').length;
+                        // console.log(aa);
                         if (aa > 0){
                             $('.webpage_arr').each(function(){
                                 arr.push($(this).val());
                             });
                         }
                         //console.log(arr);
+
+                        //checked webpage
                         var cb=document.getElementsByClassName('webpage_arr');
                         for(var i = 0;i < arr.length;i++){
 

@@ -420,7 +420,6 @@
                 $.ajax({
                     type: "get",
                     url: "{{url('member/get_all_company')}}",
-
                     cache: false,
                     success: function(data){
                         var data_return=JSON.parse(data);

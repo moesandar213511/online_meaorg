@@ -190,12 +190,13 @@ class UIController extends Controller
         ]);
     }
 
-     public function blog_detail($id){
+     public function blog_detail(Request $request,$id){
          $website_info=WebSiteInfoData::getWebSiteInfo();
          $latest_news=BlogData::getLatestBlog(6);
 
          $obj=new BlogData($id);
          $blog=$obj->getBlogData();
+
         return view('user.blog_detail')->with([
             'websiteinfo'=>$website_info,
             'latest_news'=>$latest_news,
@@ -283,7 +284,7 @@ class UIController extends Controller
         $latest_event = EventData::getLatestEvent(6);
 
         $search_blog = $request->get('search_blog');
-        $search_blogs = Blog::where('name', 'LIKE', "%$search_blog%")->paginate(10);
+        $search_blogs = Blog::where('name', 'LIKE', "%$search_blog%")->paginate(2);
 
         $ads=AdsController::ads_by_page(5,5);
        $blog_data=BlogData::getCustomBlog($search_blogs);

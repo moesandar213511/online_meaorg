@@ -10,13 +10,13 @@ use App\Webpage;
 class AdsData
 {
 
-    private $id;
+    // private $id;
     private $ads_data;
 
     function __construct($ads_id)
     {
         $ads = Ads::where('id', $ads_id)->first();
-        $this->id = $ads->id;
+        // $this->id = $ads->id;
         $this->setAdsData($ads);
     }
 

@@ -86,8 +86,8 @@
                         </select> --}}
                         <select name="sub_id" id="sub_id">
                             <i style="padding: 0!important;margin: 0!important;">Title Name</option>
-                                @foreach($sub_cat as $data)
-                                    <option value="{{$data['id']}}">{{$data['name']}}</option>
+                            @foreach($sub_cat as $data)
+                                <option value="{{$data['id']}}">{{$data['name']}}</option>
                             @endforeach
                         </select>
 
@@ -164,29 +164,29 @@
             }
         });
 
-        set_sub_category=function(){
-            var main=document.getElementById('main_id');
-            var main_id=main.value;
-            $.ajax({
-                type: 'get',
-                url: '{{url("get_sub_category")}}'+'/'+main_id,
-                cache:false,
-                contentType: false,
-                processData: false,
-                success: function(result) {
-                    console.log(result);
-                    let str="";
-                    for (let item of result) {
-                        str += "<option>" + item.name + "</option>";
-                    }
-                    let sub=document.querySelector("#sub_id");
-                    sub.innerHTML+=str;
+        // set_sub_category=function(){
+        //     var main=document.getElementById('main_id');
+        //     var main_id=main.value;
+        //     $.ajax({
+        //         type: 'get',
+        //         url: '{{url("get_sub_category")}}'+'/'+main_id,
+        //         cache:false,
+        //         contentType: false,
+        //         processData: false,
+        //         success: function(result) {
+        //             console.log(result);
+        //             let str="";
+        //             for (let item of result) {
+        //                 str += "<option>" + item.name + "</option>";
+        //             }
+        //             let sub=document.querySelector("#sub_id");
+        //             sub.innerHTML+=str;
 
-                    console.log(sub.innerHTML);
+        //             console.log(sub.innerHTML);
 
-                },
-            });
-        }
+        //         },
+        //     });
+        // }
         search_data=function () {
             event.preventDefault();
             var sub=document.getElementById('sub_id');
@@ -197,7 +197,7 @@
             var link='{{url('search/company')}}'+'/'+sub_id+'/'+keyword;
             console.log(link);
             // alert(link);
-           window.open(link,'_self');
+            window.open(link,'_self');
         }
 
 //

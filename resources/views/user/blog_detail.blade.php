@@ -248,7 +248,7 @@ h1,h2,h3,h4,h5,h6,p,span{
                             </div>
                             <div class="col-lg-4 sidebar mt-5 mt-lg-0">
                                     <div class="single-widget search-widget">
-                                    <form class="example" action="{{url('/search_blog')}}" style="margin:auto;max-width:300px" method="post">
+                                    <form class="example" action="{{url('/search_blog')}}" style="margin:auto;max-width:300px" method="get">
                                             {{csrf_field()}}
                                         <input type="text" placeholder="Search Posts" name="search_blog" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Blogs'" required>
                                         <button type="submit"><i class="fa fa-search"></i></button>

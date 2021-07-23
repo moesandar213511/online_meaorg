@@ -128,7 +128,7 @@
                 </div><!-- /col-md-9 -->
                 <div class="col-lg-4 sidebar custom-sidebar">
                     <div class="single-widget search-widget">
-                        <form class="example" action="{{url('/search_event')}}" style="margin:auto;max-width:300px" method="post">
+                        <form class="example" action="{{url('/search_event')}}" style="margin:auto;max-width:300px" method="get">
                             {{csrf_field()}}
                             <input type="text" placeholder="Search Posts" name="search_event" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Events'" required>
                             <button type="submit"><i class="fa fa-search"></i></button>

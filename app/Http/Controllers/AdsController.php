@@ -18,7 +18,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        $webpages = Webpage::all();
+        $webpages = Webpage::pluck('name', 'id');
 
         return view('admin.site_admin.admin.ads')->with([
             'url'=>'ads',
